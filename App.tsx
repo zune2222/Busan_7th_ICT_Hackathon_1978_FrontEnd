@@ -1,20 +1,50 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Login from './component/Login'
 
+import { useFonts } from 'expo-font'
+import BottomStack from './navigation/BottomStack'
+import { Image, StyleSheet } from 'react-native'
+import SignUp from './component/SignUp'
+import SignIn from './component/SignIn'
+const Stack = createNativeStackNavigator()
+const Tab = createBottomTabNavigator()
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const [loaded] = useFonts({
+        GothicBold: require('./assets/fonts/GothicA1-Bold.ttf'),
+        GothicLight: require('./assets/fonts/GothicA1-Light.ttf'),
+        GothicMedium: require('./assets/fonts/GothicA1-Medium.ttf'),
+        GothicThin: require('./assets/fonts/GothicA1-Thin.ttf'),
+        UbuntuBold: require('./assets/fonts/Ubuntu-Bold.ttf'),
+        UbuntuMedium: require('./assets/fonts/Ubuntu-Medium.ttf'),
+        UbuntuRegular: require('./assets/fonts/Ubuntu-Regular.ttf'),
+        UbuntuLight: require('./assets/fonts/Ubuntu-Light.ttf'),
+    })
+    if (!loaded) return null
+    if (loaded) {
+        return (
+            <NavigationContainer>
+                <Stack.Navigator
+                    screenOptions={() => ({
+                        headerShown: true,
+                        headerTitle: '',
+                        headerTransparent: true,
+                    })}
+                >
+                    <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="SignUp" component={SignUp} />
+                    <Stack.Screen name="SignIn" component={SignIn} />
+                    <Stack.Screen name="Main" component={BottomStack} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    tabIcon: {
+        width: 25,
+        height: 25,
+    },
+})
