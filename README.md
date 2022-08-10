@@ -8,8 +8,9 @@
 
 > “네가 방에서 지내는 모습이 어떤 가치를 지니는건데?”
 > 
+![appstore rank](https://user-images.githubusercontent.com/57588269/183981774-2c8a7f19-7b9e-48cc-a051-4eb68a04a256.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1ca5e10f-55ce-4e97-8c20-0ef6f0f887b5/Untitled.png)
+
 
 2022년 7월 27일 오전 1시 기준 앱스토어 생산성 부분의 앱 순위입니다.
 
