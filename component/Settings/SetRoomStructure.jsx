@@ -10,7 +10,6 @@ import {
     FlatList,
     ImageBackground,
 } from 'react-native'
-import * as Progress from 'react-native-progress'
 export const SetRoomStructure = ({ navigation }) => {
     const [colorArray, setColorArray] = useState([])
     const [currentColor, setCurrentColor] = useState('black')

@@ -11,6 +11,8 @@ import SignUp from './component/Sign/SignUp'
 import SignIn from './component/Sign/SignIn'
 import { CalanderDetail } from './component/Statistic/CalanderDetail'
 import { SetRoomStructure } from './component/Settings/SetRoomStructure'
+import { SetSchedule } from './component/Settings/SetSchedule'
+import { AddSchedule } from './component/Settings/AddSchedule'
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 export default function App() {
@@ -48,6 +50,9 @@ export default function App() {
                         name="SetRoomStructure"
                         component={SetRoomStructure}
                     />
+
+                    <Stack.Screen name="SetSchedule" component={SetSchedule} />
+                    <Stack.Screen name="AddSchedule" component={AddSchedule} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

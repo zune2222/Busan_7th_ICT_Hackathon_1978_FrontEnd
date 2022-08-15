@@ -32,7 +32,12 @@ export const SettingsPage = ({ navigation }) => {
                         />
                         <Text style={styles.mainText}>방 구조 설명하기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
+                    <TouchableOpacity
+                        style={styles.card}
+                        onPress={() => {
+                            navigation.navigate('SetSchedule')
+                        }}
+                    >
                         <Image
                             source={require('../../assets/image/schedule.png')}
                             style={styles.cardImg}
