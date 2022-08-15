@@ -7,7 +7,7 @@ const Tab = createBottomTabNavigator();
 const BottomStack = () => {
   return (
     <Tab.Navigator
-      initailRouteName="Home"
+      initialRouteName="Home"
       screenOptions={({ route }) => ({
         tabBarStyle: {
           borderTopColor: "#3c3f44",
