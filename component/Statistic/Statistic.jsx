@@ -38,7 +38,6 @@ export const Statistic = ({ navigation }) => {
                             },
                         }}
                         onDayPress={(day) => {
-                            console.log(day)
                             navigation.navigate('CalanderDetail', { data: day })
                         }}
                     />

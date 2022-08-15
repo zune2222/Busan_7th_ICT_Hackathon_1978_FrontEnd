@@ -20,7 +20,12 @@ export const SettingsPage = ({ navigation }) => {
                     showsVerticalScrollIndicator={false}
                     showsHorizontalScrollIndicator={false}
                 >
-                    <TouchableOpacity style={styles.card}>
+                    <TouchableOpacity
+                        style={styles.card}
+                        onPress={() => {
+                            navigation.navigate('SetRoomStructure')
+                        }}
+                    >
                         <Image
                             source={require('../../assets/image/room.png')}
                             style={styles.cardImg}

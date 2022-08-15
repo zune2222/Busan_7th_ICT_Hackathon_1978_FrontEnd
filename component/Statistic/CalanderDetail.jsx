@@ -16,10 +16,17 @@ export const CalanderDetail = ({ navigation, route }) => {
         setEventsData([
             {
                 title: '코딩',
-                startTime: genTimeBlock('MON', 9),
-                endTime: genTimeBlock('MON', 10, 50),
+                startTime: new Date(route.params.data.dateString).setHours(5),
+                endTime: new Date(route.params.data.dateString).setHours(7),
                 location: '책상',
                 extra_descriptions: ['대회 준비'],
+            },
+            {
+                title: '논설실',
+                startTime: new Date(route.params.data.dateString).setHours(9),
+                endTime: new Date(route.params.data.dateString).setHours(12),
+                location: '책상',
+                extra_descriptions: ['살려줘'],
             },
         ])
     }, [])
@@ -38,7 +45,10 @@ export const CalanderDetail = ({ navigation, route }) => {
                     <TimeTableView
                         formatDateHeader="dddd"
                         locale="ko"
-                        nDays={7}
+                        nDays={1}
+                        pivotTime={5}
+                        pivotEndTime={29}
+                        pivotDate={new Date(route.params.data.dateString)}
                         headerStyle={styles.headerStyle}
                         events={eventsData}
                     />

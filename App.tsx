@@ -3,12 +3,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Login from './component/Sign/Login'
 
+import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import BottomStack from './navigation/BottomStack'
 import { Image, StyleSheet } from 'react-native'
 import SignUp from './component/Sign/SignUp'
 import SignIn from './component/Sign/SignIn'
 import { CalanderDetail } from './component/Statistic/CalanderDetail'
+import { SetRoomStructure } from './component/Settings/SetRoomStructure'
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 export default function App() {
@@ -26,6 +28,7 @@ export default function App() {
     if (loaded) {
         return (
             <NavigationContainer>
+                <StatusBar style="auto" />
                 <Stack.Navigator
                     screenOptions={() => ({
                         headerShown: true,
@@ -40,6 +43,10 @@ export default function App() {
                     <Stack.Screen
                         name="CalanderDetail"
                         component={CalanderDetail}
+                    />
+                    <Stack.Screen
+                        name="SetRoomStructure"
+                        component={SetRoomStructure}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
