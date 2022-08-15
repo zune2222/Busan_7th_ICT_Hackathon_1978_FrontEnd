@@ -15,18 +15,26 @@ import { Colors, Family } from '../../Setting'
 import DateTimePicker from '@react-native-community/datetimepicker'
 export const AddSchedule = ({ navigation }) => {
     const [eventsData, setEventsData] = useState([])
-    const [date, setDate] = useState(new Date())
+    const [startDate, setStartDate] = useState(new Date())
+    const [startShow, setStartShow] = useState(false)
+    const [endShow, setEndShow] = useState(false)
+    const [endDate, setEndDate] = useState(new Date())
     const [mode, setMode] = useState('time')
-    const [show, setShow] = useState(false)
-    const onChange = (event, selectedDate) => {
+    const onChangeStart = (event, selectedDate) => {
         const currentDate = selectedDate
-        setShow(false)
-        setDate(currentDate)
+        setStartShow(false)
+        setStartDate(currentDate)
+    }
+    const onChangeEnd = (event, selectedDate) => {
+        const currentDate = selectedDate
+        setEndShow(false)
+        setEndDate(currentDate)
     }
 
     const showMode = (currentMode) => {
         if (Platform.OS === 'android') {
-            setShow(false)
+            setStartShow(false)
+            setEndShow(false)
             // for iOS, add a button that closes the picker
         }
         setMode(currentMode)
@@ -119,11 +127,10 @@ export const AddSchedule = ({ navigation }) => {
                                 시작 :
                             </Text>
                             <DateTimePicker
-                                testID="dateTimePicker"
-                                value={date}
+                                value={startDate}
                                 mode={mode}
                                 is24Hour={true}
-                                onChange={onChange}
+                                onChange={onChangeStart}
                                 style={{ width: 100, height: 40 }}
                             />
                         </View>
@@ -142,11 +149,10 @@ export const AddSchedule = ({ navigation }) => {
                                 종료 :
                             </Text>
                             <DateTimePicker
-                                testID="dateTimePicker"
-                                value={date}
+                                value={endDate}
                                 mode={mode}
                                 is24Hour={true}
-                                onChange={onChange}
+                                onChange={onChangeEnd}
                                 style={{ width: 100, height: 40 }}
                             />
                         </View>
