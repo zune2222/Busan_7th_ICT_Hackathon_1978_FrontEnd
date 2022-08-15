@@ -2,9 +2,10 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Image, Settings, StyleSheet } from 'react-native'
-import { Main } from '../component/Main'
-import { SettingsPage } from '../component/SettingsPage'
-import { Statistic } from '../component/Statistic'
+import { Main } from '../component/Main/Main'
+import { SettingsPage } from '../component/Settings/SettingsPage'
+import { Statistic } from '../component/Statistic/Statistic'
+import { Community } from '../component/Community/Community'
 const Tab = createBottomTabNavigator()
 const BottomStack = () => {
     return (
@@ -73,7 +74,7 @@ const BottomStack = () => {
                         />
                     ),
                 }}
-                component={Main}
+                component={Community}
             ></Tab.Screen>
             <Tab.Screen
                 name="SettingsPage"

@@ -9,12 +9,12 @@ import {
     ScrollView,
 } from 'react-native'
 import * as Progress from 'react-native-progress'
-export const SettingsPage = ({ navigation }) => {
+export const Community = ({ navigation }) => {
     return (
         <>
             <SafeAreaView style={styles.mainContainer}>
                 <View style={{ marginLeft: 20, marginBottom: 30 }}>
-                    <Text style={styles.mainText}>설정</Text>
+                    <Text style={styles.mainText}>커뮤니티</Text>
                 </View>
                 <ScrollView
                     showsVerticalScrollIndicator={false}
@@ -22,17 +22,10 @@ export const SettingsPage = ({ navigation }) => {
                 >
                     <TouchableOpacity style={styles.card}>
                         <Image
-                            source={require('../assets/image/room.png')}
+                            source={require('../../assets/image/people.png')}
                             style={styles.cardImg}
                         />
-                        <Text style={styles.mainText}>방 구조 설명하기</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
-                        <Image
-                            source={require('../assets/image/schedule.png')}
-                            style={styles.cardImg}
-                        />
-                        <Text style={styles.mainText}>일정 짜기</Text>
+                        <Text style={styles.mainText}>다른 사람들은?</Text>
                     </TouchableOpacity>
                 </ScrollView>
             </SafeAreaView>
@@ -59,7 +52,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width: '80%',
         height: 300,
-        backgroundColor: '#f2f5f9',
+        backgroundColor: 'white',
         shadowColor: '#3b4054',
         shadowOffset: { width: 2, height: 2 },
         shadowOpacity: 0.1,

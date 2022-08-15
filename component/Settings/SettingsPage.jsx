@@ -9,28 +9,32 @@ import {
     ScrollView,
 } from 'react-native'
 import * as Progress from 'react-native-progress'
-export const Main = ({ navigation }) => {
-    const hours = new Date().getHours()
-    const min = new Date().getMinutes()
+export const SettingsPage = ({ navigation }) => {
     return (
         <>
             <SafeAreaView style={styles.mainContainer}>
                 <View style={{ marginLeft: 20, marginBottom: 30 }}>
-                    <Text style={styles.mainText}>
-                        {hours}:{min}
-                    </Text>
-                    <Text style={styles.mainText}>책상에서 코딩하기</Text>
+                    <Text style={styles.mainText}>설정</Text>
                 </View>
-                <View style={styles.card}>
-                    <TouchableOpacity>
-                        <Progress.Circle
-                            size={250}
-                            progress={0.3}
-                            showsText={true}
-                            thickness={4}
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                >
+                    <TouchableOpacity style={styles.card}>
+                        <Image
+                            source={require('../../assets/image/room.png')}
+                            style={styles.cardImg}
                         />
+                        <Text style={styles.mainText}>방 구조 설명하기</Text>
                     </TouchableOpacity>
-                </View>
+                    <TouchableOpacity style={styles.card}>
+                        <Image
+                            source={require('../../assets/image/schedule.png')}
+                            style={styles.cardImg}
+                        />
+                        <Text style={styles.mainText}>일정 짜기</Text>
+                    </TouchableOpacity>
+                </ScrollView>
             </SafeAreaView>
         </>
     )
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width: '80%',
         height: 300,
-        backgroundColor: '#f2f5f9',
+        backgroundColor: 'white',
         shadowColor: '#3b4054',
         shadowOffset: { width: 2, height: 2 },
         shadowOpacity: 0.1,
