@@ -8,29 +8,21 @@ import {
     TouchableOpacity,
     ScrollView,
 } from 'react-native'
+import { Calendar } from 'react-native-calendars'
 import * as Progress from 'react-native-progress'
-export const Main = ({ navigation }) => {
-    const hours = new Date().getHours()
-    const min = new Date().getMinutes()
+export const Statistic = ({ navigation }) => {
     return (
         <>
             <SafeAreaView style={styles.mainContainer}>
                 <View style={{ marginLeft: 20, marginBottom: 30 }}>
-                    <Text style={styles.mainText}>
-                        {hours}:{min}
-                    </Text>
-                    <Text style={styles.mainText}>책상에서 코딩하기</Text>
+                    <Text style={styles.mainText}>통계</Text>
                 </View>
-                <View style={styles.card}>
-                    <TouchableOpacity>
-                        <Progress.Circle
-                            size={250}
-                            progress={0.3}
-                            showsText={true}
-                            thickness={4}
-                        />
-                    </TouchableOpacity>
-                </View>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                >
+                    <Calendar style={styles.calanderStyle} />
+                </ScrollView>
             </SafeAreaView>
         </>
     )
@@ -70,5 +62,16 @@ const styles = StyleSheet.create({
     cardImg: {
         width: 150,
         height: 150,
+    },
+    calanderStyle: {
+        borderRadius: 10,
+        width: '80%',
+        shadowColor: '#3b4054',
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.1,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 10,
+        paddingBottom: 10,
     },
 })
