@@ -1,13 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Login from './component/Login'
+import Login from './component/Sign/Login'
 
 import { useFonts } from 'expo-font'
 import BottomStack from './navigation/BottomStack'
 import { Image, StyleSheet } from 'react-native'
-import SignUp from './component/SignUp'
-import SignIn from './component/SignIn'
+import SignUp from './component/Sign/SignUp'
+import SignIn from './component/Sign/SignIn'
+import { CalanderDetail } from './component/Statistic/CalanderDetail'
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 export default function App() {
@@ -36,6 +37,10 @@ export default function App() {
                     <Stack.Screen name="SignUp" component={SignUp} />
                     <Stack.Screen name="SignIn" component={SignIn} />
                     <Stack.Screen name="Main" component={BottomStack} />
+                    <Stack.Screen
+                        name="CalanderDetail"
+                        component={CalanderDetail}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         )

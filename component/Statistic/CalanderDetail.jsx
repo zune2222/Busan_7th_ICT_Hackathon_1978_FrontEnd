@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     SafeAreaView,
     Text,
@@ -8,20 +8,40 @@ import {
     TouchableOpacity,
     ScrollView,
 } from 'react-native'
-import { Calendar } from 'react-native-calendars'
-import * as Progress from 'react-native-progress'
-export const Statistic = ({ navigation }) => {
+import TimeTableView, { genTimeBlock } from '../react-native-timetable'
+import { Colors } from '../../Setting'
+export const CalanderDetail = ({ navigation, route }) => {
+    const [eventsData, setEventsData] = useState([])
+    useEffect(() => {
+        setEventsData([
+            {
+                title: '코딩',
+                startTime: genTimeBlock('MON', 9),
+                endTime: genTimeBlock('MON', 10, 50),
+                location: '책상',
+                extra_descriptions: ['대회 준비'],
+            },
+        ])
+    }, [])
     return (
         <>
             <SafeAreaView style={styles.mainContainer}>
                 <View style={{ marginLeft: 20, marginBottom: 30 }}>
-                    <Text style={styles.mainText}>통계</Text>
+                    <Text style={styles.mainText}>
+                        {route.params.data.dateString}
+                    </Text>
                 </View>
                 <ScrollView
                     showsVerticalScrollIndicator={false}
                     showsHorizontalScrollIndicator={false}
                 >
-                    <Calendar style={styles.calanderStyle} />
+                    <TimeTableView
+                        formatDateHeader="dddd"
+                        locale="ko"
+                        nDays={7}
+                        headerStyle={styles.headerStyle}
+                        events={eventsData}
+                    />
                 </ScrollView>
             </SafeAreaView>
         </>
@@ -36,6 +56,9 @@ const styles = StyleSheet.create({
         fontFamily: 'GothicThin',
         fontSize: 40,
         color: 'black',
+    },
+    headerStyle: {
+        backgroundColor: Colors.buttonA2,
     },
     cardText: {
         fontFamily: 'GothicLight',
