@@ -9,6 +9,7 @@ import {
     SafeAreaView,
     Platform,
     ActivityIndicator,
+    ScrollView
 } from 'react-native'
 import { Colors, Family, TextSize } from '../../Setting'
 
@@ -32,7 +33,7 @@ function SignUp({ navigation }) {
                     {'\n'}
                     Account
                 </Text>
-                <View style={styles.contentWrap}>
+                <ScrollView style={styles.contentWrap}>
                     <Text style={styles.smallText}>Email</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <TextInput
@@ -52,7 +53,45 @@ function SignUp({ navigation }) {
                         autoCapitalize="none"
                         secureTextEntry
                     />
-                </View>
+                    <Text style={styles.smallText}>NickName</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <TextInput
+                            style={styles.inputStyle}
+                            onChangeText={setEmail}
+                            value={email}
+                            placeholder="1978"
+                            autoCapitalize="none"
+                        />
+                    </View><Text style={styles.smallText}>Job</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <TextInput
+                            style={styles.inputStyle}
+                            onChangeText={setEmail}
+                            value={email}
+                            placeholder="Student"
+                            autoCapitalize="none"
+                        />
+                    </View><Text style={styles.smallText}>Major</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <TextInput
+                            style={styles.inputStyle}
+                            onChangeText={setEmail}
+                            value={email}
+                            placeholder="CSE"
+                            autoCapitalize="none"
+                        />
+                    </View><Text style={styles.smallText}>BirthDay</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <TextInput
+                            style={styles.inputStyle}
+                            onChangeText={setEmail}
+                            value={email}
+                            placeholder="2002-06-24"
+                            autoCapitalize="none"
+                        />
+                    </View>
+                    <View style={{marginBottom:100}}/>
+                </ScrollView>
                 <TouchableOpacity
                     style={styles.loginBlockSkyBlue}
                     onPress={() => {
